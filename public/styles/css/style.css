@@ -1,0 +1,605 @@
+
+
+/*
+// ==========================================================================
+// HIDDEN NAV BAR: https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c
+// ==========================================================================
+*/
+
+body {
+  padding-top: 40px;   /*same as header height*/
+}
+header {
+  background-color: #e2e8f1;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /*-webkit-box-shadow: 0 8px 6px -9px #999;
+  -moz-box-shadow: 0 8px 6px -9px #999;
+  box-shadow: 0 8px 6px -9px #999;*/
+}
+.nav-up {   /*added using javascript on scroll*/
+  top: -40px;   /*same as header height*/
+}
+
+.highlightTextIn /*parent element (nav item container) set as flex so we can assign flex properties to child elements (nav items)*/
+{
+  display: flex;
+}
+
+div.highlightTextIn a
+{
+    color: rgba(0, 0, 0, 0.4);
+}
+
+div.highlightTextIn a:before
+{
+    transform: scale(1.2);
+}
+
+div.container.highlightTextIn a{
+  font-family: 'Cutive Mono', monospace;
+
+}
+
+/*
+// ==========================================================================
+// NAV LINK HOVER ANIMATION: https://codepen.io/EvyatarDa/full/waKXMd/
+// ==========================================================================
+*/
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+div.container a
+{
+    color: #FFF;
+    text-decoration: none;
+    font: 20px Raleway;
+    margin: 0px 10px;
+    padding: 10px 10px;
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+
+/* Highlight text out  */
+div.highlightTextOut a
+{
+    color: rgba(255, 255, 255, 0.3);
+}
+
+div.highlightTextOut a:before, div.highlightTextIn a:before
+{
+    position: absolute;
+    color: #FFF;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    overflow: hidden;
+    content: attr(alt);
+    transition: all 0.3s;
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+div.highlightTextOut a:hover:before, div.highlightTextIn a:hover:before
+{
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Highlight text in  */
+div.highlightTextIn a
+{
+    color: rgba(0, 0, 0, 0.4);
+}
+
+div.highlightTextIn a:before
+{
+    transform: scale(1.2);
+}
+
+/*
+// ==========================================================================
+// HAMBURGER MENU: http://www.jqueryscript.net/menu/Fullscreen-Navigation-with-Animated-Burger-Toggle-Using-jQuery-fatNav.html
+// ==========================================================================
+*/
+
+.hamburger {
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10000;
+  padding: 12px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+.hamburger__icon {
+  position: relative;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.hamburger__icon, .hamburger__icon:before, .hamburger__icon:after {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: black;
+
+  -moz-transition-property: background-color, -moz-transform;
+  -o-transition-property: background-color, -o-transform;
+  -webkit-transition-property: background-color, -webkit-transform;
+  transition-property: background-color, transform;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.hamburger__icon:before, .hamburger__icon:after {
+  position: absolute;
+  content: "";
+}
+.hamburger__icon:before {
+  top: -7px;
+}
+.hamburger__icon:after {
+  top: 7px;
+}
+.hamburger.active .hamburger__icon {
+  background-color: transparent;
+}
+.hamburger.active .hamburger__icon:before, .hamburger.active .hamburger__icon:after {
+  background-color: white;
+}
+.hamburger.active .hamburger__icon:before {
+  -moz-transform: translateY(7px) rotate(45deg);
+  -ms-transform: translateY(7px) rotate(45deg);
+  -webkit-transform: translateY(7px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active .hamburger__icon:after {
+  -moz-transform: translateY(-7px) rotate(-45deg);
+  -ms-transform: translateY(-7px) rotate(-45deg);
+  -webkit-transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.fat-nav {
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  -moz-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: transform;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.fat-nav__wrapper {
+  width: 100%;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+}
+.fat-nav.active {
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.fat-nav ul {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+.fat-nav li {
+  list-style-type: none;
+  text-align: center;
+  padding: 10px;
+  font-size: 2em;
+  font-family: 'Cutive Mono', monospace;
+}
+.fat-nav li, .fat-nav li a {
+  color: #fff;
+}
+.fat-nav li a {
+  text-decoration: none;
+}
+
+
+/*
+// ==========================================================================
+// PROJECT GALLERY STYLING
+// ==========================================================================
+*/
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 27px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 27px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 27px -2px rgba(0,0,0,0.75);
+  margin: 12px 5px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/*
+// ==========================================================================
+// PHOTO CAROUSEL STYLING
+// ==========================================================================
+*/
+
+.fotorama {
+    display: flex;
+    justify-content: center;
+    margin: 39px 23px;
+}
+
+img.gotorama_img {
+  -webkit-box-shadow: 0px 0px 27px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 27px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 27px -2px rgba(0,0,0,0.75);
+}
+
+
+/*
+// ==========================================================================
+// PROJECT GALLERY HOVER OVER EFFECT: https://tympanus.net/codrops/2014/06/19/ideas-for-subtle-hover-effects/
+// ==========================================================================
+*/
+
+
+.grid {
+	position: relative;
+	clear: both;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1245px;
+}
+
+/* layout style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: 15px 15px;
+	/*min-width: 320px;
+	max-width: 480px;
+	max-height: 360px;*/
+  min-width: 356px;
+  max-width: 377px;
+  max-height: 300px;
+	width: 48%;
+	height: auto;
+	background: #3085a3;
+	text-align: center;
+	cursor: pointer;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h2 {
+	word-spacing: -0.15em;
+	font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.grid figure h2 span {
+	font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 68.5%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Individual effects - JULIA */
+
+figure.effect-julia {
+	background: #2f3238;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75)
+}
+
+figure.effect-julia img {
+	max-width: none;
+	height: 400px;
+	-webkit-transition: opacity 1s, -webkit-transform 1s;
+	transition: opacity 1s, transform 1s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+figure.effect-julia figcaption {
+	text-align: left;
+}
+
+figure.effect-julia h2 {
+	position: relative;
+	padding: 0.5em 0;
+}
+
+figure.effect-julia p {
+	display: inline-block;
+	margin: 0 0 0.25em;
+	padding: 0.4em 1em;
+	background: rgba(255,255,255,0.9);
+	color: #2f3238;
+	text-transform: none;
+	font-weight: 500;
+	font-size: 75%;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(-660px,0,0);
+	transform: translate3d(-660px,0,0);
+}
+
+figure.effect-julia p:first-child {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+figure.effect-julia p:nth-of-type(2) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.effect-julia p:nth-of-type(3) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.effect-julia:hover p:first-child {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+figure.effect-julia:hover p:nth-of-type(2) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+figure.effect-julia:hover p:nth-of-type(3) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+figure.effect-julia:hover img {
+	opacity: 0.4;
+	-webkit-transform: scale3d(1.1,1.1,1);
+	transform: scale3d(1.1,1.1,1);
+}
+
+figure.effect-julia:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+/*
+// ==========================================================================
+// WELCOME ANIMATION: http://codepen.io/egrucza/pen/LkdPZP
+// ==========================================================================
+*/
+
+.fadeInUpBig {
+    -webkit-animation-name: fadeInUpBig;
+    animation-name: fadeInUpBig;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+}
+
+.welcome {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cutive Mono', monospace;
+    letter-spacing: 4px;
+    font-size: 34px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+}
+.letter, .reg-text {
+    display: inline-block;
+}
+.reg-text {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 3.33333s ease-out, opacity 5s ease;
+}
+.reg-text.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+.letter {
+    transition: transform 5s cubic-bezier(0.43, 0.1, 0.57, 0.9), filter 5s ease, opacity 5s ease;
+    opacity: 0;
+    filter: blur(5px);
+}
+.letter:nth-of-type(2) {
+    transform: translateY(-160px);
+    transition-duration: 2.5s;
+}
+.letter:nth-of-type(3) {
+    filter: blur(0);
+    transform: translateY(-170px);
+    transition-duration: 3.84615s;
+}
+.letter:nth-of-type(4) {
+    transform: translateY(-200px);
+    transition-duration: 3.33333s;
+}
+.letter:nth-of-type(5) {
+    transform: translateY(-150px);
+    transition-duration: 2.5s;
+}
+.letter:nth-of-type(6) {
+    filter: blur(0);
+    transform: translateY(-180px);
+    transition-duration: 2.17391s;
+}
+.letter:nth-of-type(7) {
+    transform: translateY(-160px);
+    transition-duration: 2.5s;
+}
+.letter:nth-of-type(8) {
+    filter: blur(0);
+    transform: translateY(-170px);
+    transition-duration: 3.84615s;
+}
+.letter:nth-of-type(9) {
+    transform: translateY(-200px);
+    transition-duration: 3.33333s;
+}
+.letter:nth-of-type(10) {
+    transform: translateY(-150px);
+    transition-duration: 2.5s;
+}
+.letter:nth-of-type(11) {
+    filter: blur(0);
+    transform: translateY(-180px);
+    transition-duration: 2.17391s;
+}
+.letter.loaded {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/*
+// ==========================================================================
+// MISCELLANEOUS STYLE
+// ==========================================================================
+*/
+
+h2 {
+  display: flex;
+  justify-content: center;
+  font-family: 'Cutive Mono', monospace;
+}
+
+.form-input{
+  margin: 18px;
+  font-family: 'Cutive Mono', monospace;
+}
+
+#submit-button {
+  padding: 14px 43px;
+  background: #e2e8f1;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: 'Cutive Mono', monospace;
+  border: none;
+  font-weight: 900;
+  cursor: pointer;
+}
+#submit-button:hover{
+  background: #eff2f7;
+}
+
+/*
+// ==========================================================================
+// MEDIA QUERIES
+// ==========================================================================
+*/
+@media screen and (max-width: 414px)  {
+
+  .reg-text, .mobile-hide {
+    display: none;
+  }
+
+  .container { /*aligns Dan Ha logo to the left (was centered with margin-left:auto)*/
+    margin-left: -23px;
+  }
+
+}
+
+@media screen and (min-width: 415px)  {
+  .hamburger{
+    display: none;
+  }
+}

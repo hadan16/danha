@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- set viewport to device width to help make site responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap css http://v4-alpha.getbootstrap.com/ -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <!-- custom styles -->
+  <link rel="stylesheet" type="text/css" href="public/styles/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="public/styles/css/style.css">
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans" rel="stylesheet">  <title>Dan Ha</title>
+
+</head>
+<body>
+  <span class="dan-link-target"></span>
+
+  <header class="nav-down">
+      <div class="container highlightTextIn">
+        <a class ="dan-link"style="margin-right: auto; font-weight:bold;" alt="DAN HA">DAN HA</a>
+        <a class="projects-link mobile-hide" alt="Projects">Projects</a>
+        <a class="photography-link mobile-hide" alt="Photography">Photography</a>
+        <a class="contact-link mobile-hide" alt="Contact">Contact</a>
+      </div>
+
+  <div class="fat-nav">
+    <div class="fat-nav__wrapper">
+      <ul>
+        <li class="projects-link"><a href="#">Projects</a></li>
+        <li class="photography-link"><a href="#">Photography</a></li>
+        <li class="contact-link"><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  </header>
+
+  <div class="welcome">
+    <span class="reg-text">welcome</span>
+    <span class="letter mobile-hide">t</span><span class="letter mobile-hide">o</span>
+    <span class="letter">d</span><span class="letter">a</span><span class="letter">n</span><span class="letter">h</span><span class="letter">a</span><span class="letter">.</span><span class="letter">i</span><span class="letter">o</span>
+  </div>
+
+
+  <!--centered non-text content here, set width = content width -->
+  <!-- <div class="row">
+    <div class="mx-auto col-md-4" style="width: 200px"><img src="http://placehold.it/350x150" class="img-fluid"></div>
+  </div> -->
+    <div class="projects-link-target" style="margin-top:740px"></div>
+
+    <br>
+    <br>
+
+    <h2>PROJECTS</h2>
+    <hr width="50%">
+    <!-- image gallery grid below from: http://bootsnipp.com/snippets/OMR9O -->
+      <div class=" grid">
+
+              <!-- placeholder below is dynamically removed and replaced via javascript template literal -->
+              <!-- <div class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="http://2.bp.blogspot.com/-H6MAoWN-UIE/TuRwLbHRSWI/AAAAAAAABBk/89iiEulVsyg/s400/Free%2BNature%2BPhoto.jpg" />
+                <div class="overlay">
+                    <h2>Project 1</h2>
+                    <p>
+                      <a href="#">LINK HERE</a>
+                    </p>
+                </div>
+              </div> -->
+
+      </div>
+
+    <br>
+    <br>
+
+    <br class="photography-link-target"></br>
+    <h2>PHOTOGRAPHY</h2>
+    <hr width="50%">
+    <!-- fotorama: http://fotorama.io/customize/ -->
+    <link rel="stylesheet" type="text/css" href="public/styles/css/fotorama.css">
+
+    <div class="fotorama"
+         data-nav="thumbs"
+         data-autoplay="true">
+      <a href="1.jpg"><img src="http://s.fotorama.io/1.jpg"></a>
+      <a href="2.jpg"><img src="http://s.fotorama.io/2.jpg"></a>
+    </div>
+
+    <br>
+    <br>
+
+    <br class="contact-link-target"></br>
+    <h2>CONTACT</h2>
+    <hr width="50%">
+
+    <div class="mx-auto" style="width: 75%">
+      <form method="POST" action="http://formspree.io/contactdan@gmail.com">
+        <div class="form-input">
+          <div>Name</div>
+          <input style="width: 100%; height: 40px;" type="name" name="name">
+        </div>
+        <div class="form-input">
+          <div>Email Address</div>
+          <input style="width: 100%; height: 40px;" ; type="email" name="email">
+        </div>
+        <div class="form-input">
+          <div>Message</div>
+          <textarea style="width: 100%; height: 100px; border-color: #dfdfdf;" name="message"></textarea>
+        <div>
+        <div class="form-input">
+          <div style="text-align: center"><button id="submit-button" type="submit">Send</button></div>
+        </div>
+      </form>
+    <div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+  <!-- scripts -->
+      <!-- jQuery first, then bootstrap js -->
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <!-- bootstrap-->
+      <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+      <!-- main javascript-->
+      <script type="text/javascript" src="public/scripts/app.js"></script>
+      <!-- photo carousel-->
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+      <!-- scroll to reveal -->
+      <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+
+</body>
+
+
+</html>
